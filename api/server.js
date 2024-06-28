@@ -1,12 +1,21 @@
 import express from "express";
-import connectDB from "./db.js";
+import connect from "./db.js";
+import roomsRoute from "./routes/roomRouter.js";
 
 const app = express();
+const port = 5000;
 
-const port =  5000;
+// Connect to MongoDB
+connect().then(() => {
+    console.log("Connected to MongoDB successfully");
 
-connectDB()
-.then(res => console.log("connected successfully"))
-.catch(err => console.log("Error ==>", err.message));
+    // Define routes
+    app.use('/api/rooms', roomsRoute);
 
-app.listen(port, () => console.log(`Server Running of port ${port}`));
+    // Start the server
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}).catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+});
