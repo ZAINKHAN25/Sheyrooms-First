@@ -6,7 +6,7 @@ function Homescreen() {
   useEffect(async () => {
 
     try {
-      const res = await axios.get('/api/rooms/getallrooms');
+      const res = await axios.get('api/rooms/getallrooms');
       console.log(res.data);
 
     } catch (error) {
