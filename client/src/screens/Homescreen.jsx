@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Room from '../components/Room';
 
+
 function Homescreen() {
 
   let [rooms, setRooms] = useState([]);
@@ -36,7 +37,7 @@ function Homescreen() {
 
   return (
     <div className='container'>
-      <div className="row justify-content-center mt-5">
+      <div className="row justify-content-center my-5">
 
         {loading ? (
           <h1>Loading...</h1>

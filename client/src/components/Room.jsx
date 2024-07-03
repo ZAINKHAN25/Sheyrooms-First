@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react';
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Carousel from 'react-bootstrap/Carousel';
+
 
 function Room({ room }) {
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div
             className='row bs'
@@ -17,9 +27,45 @@ function Room({ room }) {
 
                 </b>
                 <div style={{ float: "right" }}>
-                    <button className='btn btn-primary viewDatailsBtn'>View Deatails</button>
+                    <button className='btn btn-primary viewDatailsBtn' onClick={handleShow}>View Deatails</button>
                 </div>
+
             </div>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                size='lg'
+                className='modalroom'
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>{room.name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Carousel>
+                        {   
+                            room.imageurls.map(url => {
+                                return (
+                                    <Carousel.Item>
+                                        <img
+                                            className='d-block w-100 bigimg'
+                                            src={url}
+                                        />
+                                    </Carousel.Item>
+                                )
+                            })
+                        }
+
+                    </Carousel>
+                    <p>{room.description}</p>
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
         </div>
     )
 }

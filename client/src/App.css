@@ -1,41 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0500;1,100..900&display=swap');
 
-body{
+:root {
+    --firstColor: black;
+    --secondColor: white;
+    --borderRadius: 5px;
+}
+
+body {
     font-family: "Montserrat", sans-serif !important;
 }
 
 .navbarComponent {
-    background: #000;
+    background-color: var(--firstColor);
 }
 
 .nav-link {
-    color: white !important;
+    color: var(--secondColor) !important;
 }
 
 .nav-brand {
-    color: white !important;
+    color: var(--secondColor) !important;
 }
 
 .smallimg {
     height: 200px;
     width: 100% !important;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: var(--borderRadius);
 }
 
 .roomName {
     font-size: 20px !important;
 }
 
-.viewDatailsBtn {
-    background-color: black !important;
-    color: white !important;
+.btn {
+    background-color: var(--firstColor) !important;
+    color: var(--secondColor) !important;
     border: none !important;
 }
 
 .bs {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: var(--borderRadius);
     padding: 20px;
+}
+
+.bigimg {
+    height: 400px;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 10%);
+    border-radius: var(--borderRadius);
+    padding: 5px;
+}
+
+.modalroom {
+    border-radius: var(--borderRadius);
 }
