@@ -48,9 +48,9 @@ function Room({ room }) {
                 <Modal.Body>
                     <Carousel>
                         {
-                            room.imageurls.map(url => {
+                            room.imageurls.map((url, i) => {
                                 return (
-                                    <Carousel.Item>
+                                    <Carousel.Item key={i}>
                                         <img
                                             className='d-block w-100 bigimg'
                                             src={url}
