@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Carousel from 'react-bootstrap/Carousel';
+import { Link } from "react-router-dom";
+
 
 
 function Room({ room }) {
@@ -27,7 +29,10 @@ function Room({ room }) {
 
                 </b>
                 <div style={{ float: "right" }}>
-                    <button className='btn btn-primary viewDatailsBtn' onClick={handleShow}>View Deatails</button>
+                    <Link to={`/book/${room._id}`}>
+                        <button className='btn btn-primary me-2'>Book Now</button>
+                    </Link>
+                    <button className='btn btn-primary' onClick={handleShow}>View Deatails</button>
                 </div>
 
             </div>
@@ -42,7 +47,7 @@ function Room({ room }) {
                 </Modal.Header>
                 <Modal.Body>
                     <Carousel>
-                        {   
+                        {
                             room.imageurls.map(url => {
                                 return (
                                     <Carousel.Item>

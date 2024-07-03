@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homescreen from "./screens/Homescreen.jsx";
 
 import Navbar from "./components/Navbar.jsx";
+import BookingScreen from './screens/BookingScreen.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/home" exact Component={Homescreen} />
+          <Route path="/book/:roomid" exact Component={BookingScreen} />
         </Routes>
       </BrowserRouter>
     </div>

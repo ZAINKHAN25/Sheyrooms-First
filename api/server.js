@@ -5,6 +5,8 @@ import roomsRoute from "./routes/roomRouter.js";
 const app = express();
 const port = 5000;
 
+app.use(express.json())
+
 // Connect to MongoDB
 connect().then(() => {
     console.log("Connected to MongoDB successfully");
