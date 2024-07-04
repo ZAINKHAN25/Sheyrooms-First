@@ -8,6 +8,8 @@
 
 body {
     font-family: "Montserrat", sans-serif !important;
+    width: 100vw !important;
+    overflow-x: hidden !important;
 }
 
 .navbarComponent {

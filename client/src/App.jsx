@@ -11,7 +11,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <Homescreen /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/home" exact Component={Homescreen} />

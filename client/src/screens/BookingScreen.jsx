@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { BounceLoader } from 'react-spinners';
+import { BounceLoader } from "react-spinners"
+import ErrorComponent from '../components/Error.jsx';
 
 function BookingScreen() {
     let { roomid } = useParams();
 
-    let [room, setRoom] = useState(null);
+    let [room, setRoom] = useState(null); // Initialize room state to null
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
 
@@ -34,9 +35,9 @@ function BookingScreen() {
     return (
         <div>
             {loading ? (
-                <div className='loading-page'><BounceLoader size={100} /></div> 
+                <div className='loading-page'><BounceLoader size={100} /></div>
             ) : error ? (
-                <h1>Error fetching room. Please try again later.</h1>
+                <ErrorComponent />
             ) : (
                 room && (
                     <div className='d-flex w-100 justify-content-center p-5 my-3'>

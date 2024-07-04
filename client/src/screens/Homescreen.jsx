@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BounceLoader } from "react-spinners"
 
 import Room from '../components/Room';
+import ErrorComponent from '../components/Error.jsx';
 
 function Homescreen() {
 
@@ -43,7 +44,7 @@ function Homescreen() {
         {loading ? (
           <div className='loading-page'><BounceLoader size={100} /></div>
         ) : error ? (
-          <div>Error</div>
+          <ErrorComponent />
         ) : (
           rooms.map(room => {
             return (
