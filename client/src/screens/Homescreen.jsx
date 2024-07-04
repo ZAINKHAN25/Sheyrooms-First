@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Room from '../components/Room';
+import { BounceLoader } from "react-spinners"
 
+import Room from '../components/Room';
 
 function Homescreen() {
 
@@ -40,9 +41,9 @@ function Homescreen() {
       <div className="row justify-content-center my-5">
 
         {loading ? (
-          <h1>Loading...</h1>
+          <div className='loading-page'><BounceLoader size={100} /></div>
         ) : error ? (
-          <h1>Error</h1>
+          <div>Error</div>
         ) : (
           rooms.map(room => {
             return (

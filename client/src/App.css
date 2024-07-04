@@ -57,3 +57,13 @@ body {
 .modalroom {
     border-radius: var(--borderRadius);
 }
+
+.loading-page{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondColor) !important;
+    color: var(--firstColor) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

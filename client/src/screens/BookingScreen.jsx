@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { BounceLoader } from 'react-spinners';
 
 function BookingScreen() {
-    let { roomid } = useParams(); // Correctly destructure roomid from useParams
+    let { roomid } = useParams();
 
-    let [room, setRoom] = useState(null); // Initialize room state to null
+    let [room, setRoom] = useState(null);
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
+
+    console.log(roomid);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +34,7 @@ function BookingScreen() {
     return (
         <div>
             {loading ? (
-                <h1>Loading...</h1>
+                <div className='loading-page'><BounceLoader size={100} /></div> 
             ) : error ? (
                 <h1>Error fetching room. Please try again later.</h1>
             ) : (
